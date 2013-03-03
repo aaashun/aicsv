@@ -1,0 +1,34 @@
+aicsv is base on net.sourceforge.javacsv, it's an much more easy tool for reading and write csv.
+
+features:
+    CsvRecord/JavaBean mapping, similar as ORM
+    Column constraint, such as nullable, unique, regex match
+
+example:
+
+    1. define csv record bean
+        public class FooRecord extends CsvRecord {
+            @name("cell")
+            @nullable(true)
+            @matches(".*")
+            private String cell;
+
+            ... getter and setter
+        }
+
+    2. read csv
+        FooRecord record;
+        CsvReader<FooRecord> reader = new CsvReader<FooRecord>(file, FooRecord.class);
+        while ((record = reader.readRecord()) != null) {
+            System.out.println(record.getCell());
+        }
+
+    3. write csv
+        CsvWriter<FooRecord> writer = new CsvWriter<FooRecord>(file, FooRecord.class);
+        FooRecord record = new FooRecord();
+        record.setCell("this a cell");
+        writer.writeRecord(record);
+        writer.close();
+
+
+please see the testcase for more usage
