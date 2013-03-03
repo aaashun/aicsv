@@ -1,4 +1,4 @@
-aicsv is base on net.sourceforge.javacsv, it's an much more easy tool for reading and write csv.
+aicsv is base on net.sourceforge.javacsv, it's an easy tool for reading and writing csv files.
 
 features:
     CsvRecord/JavaBean mapping, similar as ORM
